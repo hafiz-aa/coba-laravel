@@ -15,22 +15,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(5)->create();
+        User::factory(5)->create();
 
-				// Category::create([
-				// 	'name' => 'Web Programming',
-				// 	'slug' => 'web-programming'
-				// ]);
-				// Category::create([
-				// 	'name' => 'Data Science',
-				// 	'slug' => 'data-science'
-				// ]);
-				// Category::create([
-				// 	'name' => 'Self Development',
-				// 	'slug' => 'self-development'
-				// ]);
+				Category::create([
+					'name' => 'Web Programming',
+					'slug' => 'web-programming'
+				]);
+				Category::create([
+					'name' => 'Data Science',
+					'slug' => 'data-science'
+				]);
+				Category::create([
+					'name' => 'Self Development',
+					'slug' => 'self-development'
+				]);
 
-				Post::factory(2)->create();
+				Post::factory(20)->create();
 					
     }
 }
