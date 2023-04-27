@@ -6,7 +6,8 @@
 	<div class="col-lg-5">
 		<main class="form-registration w-100 m-auto">
 			<h1 class="h3 mb-3 fw-normal text-center">Register Here</h1>
-			<form>
+			<form action="/register" method="POST">
+				@csrf
 				{{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
 		
 				<div class="form-floating">
