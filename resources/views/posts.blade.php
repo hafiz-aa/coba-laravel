@@ -32,7 +32,7 @@
 						<div class="position-absolute bg-dark px-3 py-2 "><a href="/categories/{{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
 						<img src="https://source.unsplash.com/720x400?{{ $post->category->slug }}" class="card-img-top" alt="{{ $post->category->slug }}">
 						<div class="card-body">
-							<h5 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none">{{ $post->title }}</a></h5>
+							<h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h5>
 								<p>By: <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}
 								</p>
 							<p class="card-text">{{ $post->excerpt }}</p>
