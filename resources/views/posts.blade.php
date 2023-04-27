@@ -7,9 +7,9 @@
 
 	@if ($posts -> count())
 		<div class="card mb-3">
-			<img src="..." class="card-img-top" alt="...">
+			<img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->slug }}" class="card-img-top" alt="...">
 			<div class="card-body text-center">
-				<h3 class="card-title">{{ $posts[0] -> title }}</h3>
+				<h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0] -> title }}</a></h3>
 				<small class="text-muted">
 					<p>By: <a href="/authors/{{ $posts[0]->author->username }}" class="text-decoration-none">{{ $posts[0]->author->name }}</a> in <a href="/categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForHumans() }}
 					</p>
@@ -26,7 +26,7 @@
 
 
 
-	@foreach ($posts as $post)
+	@foreach ($posts->skip(1) as $post)
 		<article class="mb-5 border-bottom pb-3">
 			<h2>
 				<a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a>
