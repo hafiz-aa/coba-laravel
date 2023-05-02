@@ -27,7 +27,7 @@
 				<label for="slug" class="form-label">Slug</label>
 				<input type="text" class="form-control @error('slug')
 					is-invalid
-					@enderror" id="slug" name="slug" required disabled readonly value="{{ old('slug') }}">
+					@enderror" id="slug" name="slug" required readonly value="{{ old('slug') }}">
 				@error('slug')
 					<div class="invalid-feedback">
 						{{ $message }}
