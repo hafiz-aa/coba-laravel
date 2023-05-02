@@ -54,7 +54,10 @@ class DashboardPostController extends Controller
      * Display the specified resource.
      */
     public function show(Post $post)
-    {
+    {		
+			if($post->author->id !== auth()->user()->id) {
+				abort(403);
+	 		}
         return view('dashboard.posts.show', [
 					'post' => $post
 				]);
@@ -65,6 +68,9 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
+			if($post->author->id !== auth()->user()->id) {
+				abort(403);
+	 	}
 			return view('dashboard.posts.edit',[
 				'post' => $post,
 				'categories' => Category::all()
