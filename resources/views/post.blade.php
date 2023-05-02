@@ -9,7 +9,13 @@
 
 			<p>By: <a href="/posts?author=/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a href="/posts?category={{ $post->category->slug }} " class="text-decoration-none">{{ $post->category->name }}</a></p>
 
-			<img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" class="img-fluid" alt="{{ $post->category->slug }}">
+			@if ($post->image)
+				<div style="max-height: 350px; overflow:hidden">
+					<img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" alt="{{ $post->category->slug }}">
+				</div>
+				@else
+				<img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" class="img-fluid" alt="{{ $post->category->slug }}">
+			@endif
 
 			{{-- mencetak tag html --}}
 			<article class="my-3 fs-5">
