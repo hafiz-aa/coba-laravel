@@ -65,7 +65,10 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+			return view('dashboard.posts.edit',[
+				'post' => $post,
+				'categories' => Category::all()
+			]);
     }
 
     /**
@@ -73,7 +76,24 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+			$rules = [
+				'title' => 'required|max:255',
+				'category_id' => 'required',
+				'body' => 'required',
+			];
+
+			if($request->slug != $post->slug){
+				$rules['slug'] = 'required|unique:posts';
+			}
+
+			$validateData = $request->validate($rules);
+			$validateData['user_id'] = auth()->user()->id;
+			$validateData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+			Post::where('id', $post->id)
+					->update($validateData);
+
+			return redirect('/dashboard/posts')->with('success', 'Post edited successfully!');
     }
 
     /**
