@@ -38,6 +38,12 @@
 		</form>
 	</div>
 
+	<style>
+		trix-toolbar [data-trix-button-group="file-tools"]{
+			display: none;
+		}
+	</style>
+
 	<script>
 		const title = document.querySelector('#title');
 		const slug = document.querySelector('#slug');
@@ -47,5 +53,10 @@
 				.then(response => response.json())
 				.then(data => slug.value = data.slug)
 		});
+
+		document.addEventListener('trix-file-accept', function(e){
+			e.preventDefault();
+			
+		})
 	</script>
 @endsection
