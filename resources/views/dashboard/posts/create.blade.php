@@ -10,7 +10,7 @@
 	</div>
 
 	<div class="col-lg-8">
-		<form>
+		<form method="post" action="/dashboard/posts">
 			@csrf
 			<div class="mb-3">
 				<label for="title" class="form-label">Title</label>
