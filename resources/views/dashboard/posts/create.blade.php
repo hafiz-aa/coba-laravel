@@ -13,6 +13,7 @@
 		<form method="post" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
 			@csrf
 			<div class="mb-3">
+				{{-- Title --}}
 				<label for="title" class="form-label">Title</label>
 				<input type="text" class="form-control @error('title')
 					is-invalid
@@ -23,6 +24,7 @@
 					</div>
 				@enderror
 			</div>
+			{{-- Slug --}}
 			<div class="mb-3">
 				<label for="slug" class="form-label">Slug</label>
 				<input type="text" class="form-control @error('slug')
@@ -34,6 +36,7 @@
 					</div>
 				@enderror
 			</div>
+			{{-- Category --}}
 			<div class="mb-3">
 				<label for="category" class="form-label">Category</label>
 				<select class="form-select" name="category_id">
@@ -46,6 +49,7 @@
 					@endforeach
 				</select>
 			</div>
+			{{-- Image --}}
 			<div class="mb-3">
 				<label for="image" class="form-label">Post Image</label>
 				<img class="img-preview img-fluid mb-3 col-sm-5" >
